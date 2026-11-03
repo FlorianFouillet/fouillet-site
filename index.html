@@ -12,7 +12,24 @@
 <body>
 <div class="page">
 
-<header class="hero">
+<nav class="toc" aria-label="On this page">
+  <a href="#top" class="toc-name">Florian Fouillet</a>
+  <ul>
+    <li><a href="#bio">Bio</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reading">Recent reading</a></li>
+    <li><a href="#people">People I follow</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#how">How I work</a></li>
+    <li><a href="#else">Beyond work</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<header class="hero" id="top">
   <span class="node node-head" aria-hidden="true"></span>
   <div class="id">
     <img class="portrait" src="/portrait.jpg" width="160" height="160" alt="Florian Fouillet">
@@ -31,11 +48,11 @@
 
 <main>
 
-<section id="about" aria-labelledby="about-h">
-  <h2 id="about-h"><span class="node" aria-hidden="true"></span>About</h2>
+<section id="bio" aria-labelledby="bio-h">
+  <h2 id="bio-h"><span class="node" aria-hidden="true"></span>Bio</h2>
   <p>I have spent eight years in Schneider Electric's Industrial Automation business. I started by writing firmware, then built and led the connectivity R&amp;D team, and today I run, from the CTO Office, the program behind its next generation of open, real-time industrial networks: OPC UA FX over Time-Sensitive Networking.</p>
   <p>The direction I am working toward is a converged, deterministic network that AI agents help configure, diagnose and operate. I sit on the OPC Foundation's Field Level Communication steering committee and its Marketing Control Board, and I started Schneider's Connectivity Community, which now has more than 800 members.</p>
-  <p>I am French, from Brittany. I studied in Angers and Hong Kong, then worked for Schneider in Boston and Nice; I have been back in Boston since 2021.</p>
+  <p>I am French. I studied in Angers and Hong Kong, then worked for Schneider in Boston and Nice; I have been back in Boston since 2021.</p>
 </section>
 
 <section id="work" aria-labelledby="work-h">
@@ -66,31 +83,93 @@
       </div>
     </li>
   </ol>
-  <p class="aside">Also: a provisional patent application on using large language models in industrial control systems (2025). Studies in software engineering for embedded real-time systems (ESEO, Angers) and engineering management (City University of Hong Kong).</p>
+  <p class="aside">Also: a provisional patent application on using large language models in industrial control systems (2025).</p>
+</section>
+
+<section id="education" aria-labelledby="education-h">
+  <h2 id="education-h"><span class="node" aria-hidden="true"></span>Education</h2>
+  <ol class="timeline">
+    <li>
+      <p class="when"><time datetime="2016">2016</time> to <time datetime="2017">2017</time></p>
+      <div>
+        <h3>MSc Engineering Management</h3>
+        <p class="where">City University of Hong Kong</p>
+      </div>
+    </li>
+    <li>
+      <p class="when"><time datetime="2015">2015</time> to <time datetime="2018">2018</time></p>
+      <div>
+        <h3>MSc Software Engineering, Embedded Real-Time Systems</h3>
+        <p class="where">ESEO, Angers</p>
+      </div>
+    </li>
+    <li>
+      <p class="when"><time datetime="2012">2012</time> to <time datetime="2015">2015</time></p>
+      <div>
+        <h3>BSc Electrical Engineering, Mathematics and Physics</h3>
+        <p class="where">ESEO, Angers</p>
+      </div>
+    </li>
+  </ol>
 </section>
 
 <section id="projects" aria-labelledby="projects-h">
   <h2 id="projects-h"><span class="node" aria-hidden="true"></span>Projects</h2>
+
   <article class="project">
     <h3><a href="https://flopedia.app/">Flopedia</a></h3>
-    <p>My second brain. My notes live in Obsidian on Google Drive; a team of AI agents files what I capture, compiles what I read into a wiki and checks the whole thing every week. An always-on engine I built with Claude keeps a history of every change, and a dashboard shows me the state of it all.</p>
+    <p>Flopedia is my second brain, and the system I built around it. My notes live in Obsidian, in my own Google Drive. Around them, a set of AI agents does the work a good assistant would: they file what I capture, compile what I read into a wiki kept apart from my own writing, check it every week, and tell me when something needs me.</p>
+    <figure class="map">
+      <img src="/flopedia-map.svg" width="720" height="400" alt="A brain drawn as two constellations, gold on the left for my notes and blue on the right for the wiki, circled by an orbit of projects with small moons for their scheduled tasks.">
+      <figcaption>The map at the heart of the Visor: my notes on the left, the agents' wiki on the right, my projects in orbit with their scheduled tasks. Names left out.</figcaption>
+    </figure>
+    <p>Our parents kept their lives in binders: the car invoice, the lease, the pay slips, the diplomas, the medical records, the warranty for the washing machine. We went paperless, but the paper trail never went away. It just scattered across inboxes, apps and download folders, and that trail holds a surprising amount of information about a life. Put it in one data layer where every document has a place and a consistent meaning, and any agent, today's or next year's, can answer what you would otherwise dig for: when the warranty ends, what you paid for the roof, where last year's tax return is. Meaning that lives with the data, rather than in one app's memory, is what makes it useful to every tool you use after.</p>
+    <p>So the goal is not a personal assistant that answers questions. It is a system that learns to understand me over time: my interests, the way I write, the people I work with, the projects I care about. It finds documents and classifies them, drafts in my voice, and keeps the context I would otherwise repeat in every chat.</p>
+    <p>Each project has its own folder, its own rules and its own context, and that context lives in my data layer, not inside Claude or ChatGPT. Models change every few months; my data, my rules and their history stay mine, and any agent I trust can pick them up.</p>
+    <p>Two pieces, which I built with Claude, hold it together. The <strong>Engine</strong> is an always-on service that mirrors my notes, keeps a history of every change and who made it, and gives agents a few narrow, logged ways to read and write. The <strong>Visor</strong> is the page I open on any device to see what ran, what needs me, and to read and edit my notes. The rules are simple: agents propose, I decide; every change is logged; what is private stays private.</p>
+    <p class="aside">More to come: a map of how my notes connect, agents that work while I am away, and some of it published here.</p>
   </article>
+
   <article class="project">
     <h3>PipsCodex</h3>
-    <p>An AI investment-intelligence app I am building: a brief on long-term positions, and reviews of event-driven trades.</p>
+    <p>An AI investment-intelligence app I am building. It writes a brief on long-term positions, and its core is SPEAR, its loop for event-driven trades: each idea is followed in shadow, checked at set points, reviewed after the fact, and compared with what hindsight shows, so the system learns from its own record.</p>
   </article>
 </section>
 
 <section id="reading" aria-labelledby="reading-h">
-  <h2 id="reading-h"><span class="node" aria-hidden="true"></span>Reading and notes</h2>
+  <h2 id="reading-h"><span class="node" aria-hidden="true"></span>Recent reading</h2>
   <p class="intro">What I have been reading, watching and taking notes on lately.</p>
   <ul class="shelf">
     <li><cite>Deep Dive into LLMs like ChatGPT</cite><span class="by">Andrej Karpathy, talk</span></li>
     <li><cite>Why Machines Learn</cite><span class="by">Anil Ananthaswamy, book</span></li>
+    <li><cite>Making Sense of a World in Crisis</cite><span class="by">Yuval Noah Harari, talk</span></li>
     <li><cite>Is this machine playing?</cite><span class="by">Cloos and Norelli, study</span></li>
-    <li><cite>You and Your Research</cite><span class="by">Richard Hamming, talk</span></li>
-    <li><cite>The Mythical Man-Month</cite><span class="by">Fred Brooks, book</span></li>
   </ul>
+</section>
+
+<section id="people" aria-labelledby="people-h">
+  <h2 id="people-h"><span class="node" aria-hidden="true"></span>People I follow</h2>
+  <dl class="people">
+    <dt>Andrej Karpathy</dt>
+    <dd>One of the best teachers in AI. He explains how large language models work from the ground up, and he builds in the open: llm.c reproduces GPT-2 in plain C and CUDA, small enough that one person can read all of it. His talks and code are where I go to understand, not just use. His idea of a wiki that an AI keeps for you is close to what I was building with Flopedia.</dd>
+    <dt>Yuval Noah Harari</dt>
+    <dd>
+      <p><cite>Sapiens</cite> changed how I look at history. Harari tells it as three revolutions: the cognitive one, when we started to share stories; the agricultural one; and the scientific one we are still living through. His key idea is that we dominate the planet because millions of strangers can cooperate around fictions they all believe in at once: money, nations, laws. He also describes the luxury trap, where yesterday's luxury becomes today's necessity, and I see it at work every day with AI tools.</p>
+      <p>What stays with me is where he takes these ideas now. If language is the operating system of civilization, an AI that masters language can run our bureaucracies from the inside, which worries him more than killer robots. He insists that truth is costly and fiction is cheap, so we need institutions that can correct their own mistakes, and that nothing about the future of AI is inevitable: it depends on the choices we make now.</p>
+    </dd>
+    <dt>Neil deGrasse Tyson</dt>
+    <dd>A great science communicator. His books, like <cite>Astrophysics for People in a Hurry</cite>, and his podcast StarTalk explain physics clearly and with humour, without dumbing it down, and his view of what science can do is a positive one.</dd>
+    <dt>Cyrus North</dt>
+    <dd>
+      <p>A French writer and YouTuber who makes philosophy usable in everyday life. His book <cite>Le Code</cite> turns Stoicism into a handful of practical tools, and they are the ones I come back to.</p>
+      <p>The first is to tell apart what depends on me from what does not, and to put my effort and my desire only in the first. The second is that events do not reach us directly: they pass through our judgement, so much of what hurts is the way we read what happened, not the event itself. And the virtues the Stoics care about, prudence, moderation, justice and courage, work like muscles: they grow with practice.</p>
+    </dd>
+    <dt>Aurélien Barrau</dt>
+    <dd>
+      <p>An astrophysicist and a philosopher, and both sides interest me. His lectures on special and general relativity are among the best I know: rigorous on the physics and the mathematics, and full of the history and philosophy behind them.</p>
+      <p>He is also one of the clearest voices on where our way of living is heading. For him the climate is a symptom, not the main problem: even with a stable climate, life on Earth would still be collapsing, through pesticides, shrinking wild spaces and the loss of most wild animals in a few decades. What drives it is an economy built on endless growth, and technology that keeps speeding it up. That is why he says unlimited clean energy would not save us: it would only let us go faster in the same direction and push further past the planet's limits. The question, for him, is not how much energy we produce but what we do with it, and he calls for a political, poetic and philosophical change of course.</p>
+    </dd>
+  </dl>
 </section>
 
 <section id="writing" aria-labelledby="writing-h">
@@ -126,6 +205,7 @@
   <p>Florian Fouillet, 2026. No cookies, no tracking.</p>
 </footer>
 
+</div>
 </div>
 </body>
 </html>
