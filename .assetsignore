@@ -1,0 +1,14 @@
+# Not the site: files of the repo, or made by Cloudflare's build, that are never served.
+README.md
+.assetsignore
+.gitignore
+.git
+.wrangler
+wrangler.json
+wrangler.jsonc
+wrangler.toml
+node_modules
+package.json
+package-lock.json
+.dev.vars*
+.env*
