@@ -352,3 +352,15 @@ cite { font-style: italic; font-size: 1.12rem; }
   .when { padding-top: 0; }
   .tenets li { font-size: 1.15rem; }
 }
+
+/* v1.2: the hero's second paragraph, and the Flopedia story's sub-heads */
+
+.hero .intro { max-width: 38em; margin: 0 0 1.6rem; }
+.project h4 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.08rem;
+  word-spacing: -0.04em;
+  color: var(--text);
+  margin: 1.9rem 0 0.45rem;
+}

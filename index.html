@@ -39,7 +39,8 @@
       <p class="known">Flo, to most people.</p>
     </div>
   </div>
-  <p class="lead">I lead R&amp;D on industrial communication at Schneider Electric, in Boston: the networks that let controllers, drives and devices on a factory floor exchange data in real time. Outside work, I build systems of AI agents, starting with my own second brain.</p>
+  <p class="lead">Hey there, I'm Florian, welcome to my page! It's a work in progress, and it will grow as I find the time. Here I want to share my path, what I do and what I'm passionate about. I'm not sure yet what shape it will take, so let's see.</p>
+  <p class="intro">By day I lead R&amp;D on industrial communication at Schneider Electric, in Boston: the networks that let controllers and devices exchange data in real time, from the factory floor to the cloud. Outside work I build systems of AI agents, starting with my own second brain, and I'm passionate about (too) many other things that I hope to share here over time.</p>
   <nav class="links" aria-label="Elsewhere">
     <a href="https://www.linkedin.com/in/florianfouillet/">LinkedIn</a>
     <a href="https://github.com/FlorianFouillet">GitHub</a>
@@ -51,11 +52,10 @@
 
 <section id="bio" aria-labelledby="bio-h">
   <h2 id="bio-h"><span class="node" aria-hidden="true"></span>Bio</h2>
-  <p>I have spent eight years in Schneider Electric's Industrial Automation business. I started by writing firmware, then built and led the connectivity R&amp;D team, and today I run, from the CTO Office, the program behind its next generation of open, real-time industrial networks: OPC UA FX over Time-Sensitive Networking.</p>
-  <p>The direction I am working toward is a converged, deterministic network that AI agents help configure, diagnose and operate. I sit on the OPC Foundation's Field Level Communication steering committee and its Marketing Control Board.</p>
-  <p>I am originally from France. I did my undergrad and Master in Angers, France. I then moved to Hong Kong at 22 to pursue my studies with a second Master in Engineering Management. After coming to france a short time my goal was to move to the US and especially Boston.</p>
-  <p>After 6 months of research in parallel of my studies I found my first full time opportunityat Schneider Electric in Boston. For one year I developed Embedded firmware in an R&D team specialized in Ethernet Communication. </p>
-  <p>My journey then took me to Nice, France, where I continued my work in industrial communication and connectivity, before returning to Boston in 2021.</p>
+  <p>I work in the CTO Office of Schneider Electric's Industrial Automation business, where I am an R&amp;D program director. I lead a team of network and connectivity experts building the system functions behind its next generation of open, real-time industrial networks: OPC UA FX over Time-Sensitive Networking. The direction I am working toward is a converged, deterministic network that AI agents help configure, diagnose and operate. I also sit on the OPC Foundation's Field Level Communication steering committee and its Marketing Control Board.</p>
+  <p>I grew up in Angers, in the west of France, and studied there at ESEO: a bachelor's in electrical engineering with a major in maths and physics, then a master's in embedded software engineering. At 22 I moved to Hong Kong for a second master's, in engineering management. Hong Kong showed me that living abroad is exciting, and not that hard. It is also where I had my first look at machine learning, in a class on neural networks, back in 2016.</p>
+  <p>By the time I got back to France, my mind was made up: the next chapter would be in the US, in Boston. Easier said than done, but after six months of searching alongside my studies, I started at Schneider Electric in Boston in 2018, writing embedded firmware in C on real-time operating systems like VxWorks, in an R&amp;D team specialized in Ethernet communication.</p>
+  <p>A year later my visa was about to run out, so I moved to Nice, in the south of France, and kept developing network protocols for industry while I waited for a new one (and for COVID to end). I came back to Boston in 2021 and went from senior engineer to product owner, then to the program director role I hold today.</p>
 </section>
 
 <section id="work" aria-labelledby="work-h">
@@ -121,16 +121,31 @@
 
   <article class="project">
     <h3><a href="https://flopedia.app/">Flopedia</a></h3>
-    <p>Flopedia is my second brain, and the system I built around it. My notes live in Obsidian, in my own Google Drive. Around them, a set of AI agents does the work a good assistant would: they file what I capture, compile what I read into a wiki kept apart from my own writing, check it every week, and tell me when something needs me.</p>
+    <p>Flopedia is my second brain, and the system I built around it. It's an idea that marinated for a long time, where several threads of thought meet.</p>
     <figure class="map">
       <img src="/flopedia-map.svg" width="720" height="400" alt="A brain drawn as two constellations, gold on the left for my notes and blue on the right for the wiki, circled by an orbit of projects with small moons for their scheduled tasks.">
-      <figcaption>The map at the heart of the Visor: my notes on the left, the agents' wiki on the right, my projects in orbit with their scheduled tasks. Names left out.</figcaption>
+      <figcaption>My two brains: my notes on the left, the agents' wiki on the right, my projects in orbit with their scheduled tasks as moons. It's the map at the heart of the Visor, names left out.</figcaption>
     </figure>
-    <p>Our parents kept their lives in binders: the car invoice, the lease, the pay slips, the diplomas, the medical records, the warranty for the washing machine. We went paperless, but the paper trail never went away. It just scattered across inboxes, apps and download folders, and that trail holds a surprising amount of information about a life. Put it in one data layer where every document has a place and a consistent meaning, and any agent, today's or next year's, can answer what you would otherwise dig for: when the warranty ends, what you paid for the roof, where last year's tax return is. Meaning that lives with the data, rather than in one app's memory, is what makes it useful to every tool you use after.</p>
-    <p>So the goal is not a personal assistant that answers questions. It is a system that learns to understand me over time: my interests, the way I write, the people I work with, the projects I care about. It finds documents and classifies them, drafts in my voice, and keeps the context I would otherwise repeat in every chat.</p>
-    <p>Each project has its own folder, its own rules and its own context, and that context lives in my data layer, not inside Claude or ChatGPT. Models change every few months; my data, my rules and their history stay mine, and any agent I trust can pick them up.</p>
-    <p>Two pieces that I built hold it together. The <strong>Engine</strong> is an always-on service running on my own server that mirrors my data layer, keeps a history of every change and who made it, and gives agents a few narrow, logged ways to read and write. The <strong>Visor</strong> is the page I open on any device to see what ran, what needs me, and to read and edit my notes. Every change is logged; what is private stays private.</p>
-    <p class="aside">More to come: a map of how my notes connect, agents that work while I am away, and some of it published here.</p>
+
+    <h4>A data layer of my own</h4>
+    <p>Our parents kept their lives in binders: the car invoice, the lease, the pay slips, the diplomas, the warranty for the washing machine. We went paperless, but the paper trail never went away; it just scattered across inboxes, apps and download folders. I started building my own data layer in 2018, in Google Drive: an architecture that fits me, saves and backups, and everything reachable from anywhere. It changed my young adult life. Being a very organized person, I still get a small kick every time an invoice, a statement or a tax return lands in its place.</p>
+    <p>Over the years I wanted more unification. My documents were in order, but my notes and to-dos lived somewhere else, and so did my growing number of AI projects. A Claude project (or a GPT, or a Gem) has its own instructions, memory and files, which is great, but what it learns stays inside it: hard to share between tools, and not really mine. So I imagined one data layer for all of it, my documents, my notes and my projects. Each project gets a folder in my Drive, and each Claude project points to it. Models change every few months; my data, my rules and their history stay, and any agent I trust can pick them up.</p>
+    <p>But as soon as several agents share one data layer, it needs rules, just like a team does. So I wrote a manual at the root of my Drive: how everything is organized, and for each kind of agent (a project chat, a scheduled task) what it may read and where it may write. Every folder has its own README that says what belongs in it. The agents also get a folder of their own, _AI, with their task prompts and the list of decisions, numbered, one per line, so no one has to remember why things are the way they are. Agents propose, I decide. And every change an agent makes gets a line in a log, so I always know who did what.</p>
+
+    <h4>Notes that connect</h4>
+    <p>Notes mattered most to me. I used Google Keep for years: it's simple and fast, a new note in a few seconds, but it gets hard to manage once notes grow longer and more numerous. I wanted notes that connect to each other, a bit like neurons making connections between ideas. That is the idea behind Flopedia and this "second brain". So I gave my notes their own place in the data layer, as Markdown files linked the way Obsidian does it (I have since replaced the editor with my own, but more on that another time).</p>
+    <p>I write; agents polish (grammar, clearer sentences, my own voice kept) and suggest links between notes. The ideas and the reflection have to come from me. My notes are how I think, and putting things down on (virtual) paper helps me go further and build more complex ideas.</p>
+
+    <h4>Two brains</h4>
+    <p>Then I came across Andrej Karpathy's <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a>: an LLM that compiles what you read into a wiki it maintains itself. It's a bit different from what I had, but it gave me the two halves you see in the map at the top. On the left, in gold, is my brain: my notes, my documents and my projects, everything that comes from me. On the right, in blue, is the AI brain: when I read an article, a paper or a book, an agent can go through all of it and file what it says in a wiki of its own, linked to the rest. Agents write the wiki, I read it, and it never speaks for me. Around both, my projects are in orbit, and the small moons are their scheduled tasks.</p>
+
+    <h4>The Engine and the Visor</h4>
+    <p>To hold it together I built two pieces. The <strong>Engine</strong> runs on my own server. It keeps a read-only copy of my data layer, so many agents can read at the same time without stepping on each other, and each one only reaches what it is allowed to. It keeps a history of every change and who made it, runs scheduled scripts that check the system's health, and gives agents a few simple primitives through MCP: search, read a file, see what ran, add a line to a log, record a decision. It is purely mechanical: it never calls a model.</p>
+    <p>The <strong>Visor</strong> is the page I open on any device, phone included. It shows the map at the top, what ran, what needs me, my to-dos and what's coming up, and it is where I read and edit my notes. It also captures: anything I type, or share to it from another app on my phone, lands in an inbox, and an agent sorts it into the right place.</p>
+
+    <h4>More and more autonomous</h4>
+    <p>Each project now has its own folder, rules and resources, and its own scheduled tasks that run while I'm away: one sorts the inbox, one checks the wiki every week, one gathers each day's log. Every run reports back, and when something needs me, it shows up in the Visor with a link to the right chat. The rules stay the same: agents propose, I decide; every change is logged; what is private stays private.</p>
+    <p class="aside">More to come: a map of how my notes connect, and some of my notes published here.</p>
   </article>
 
   <article class="project">
@@ -170,7 +185,7 @@
     <dt>Aurélien Barrau</dt>
     <dd>
       <p>An astrophysicist and a philosopher, and both sides interest me. His lectures on special and general relativity are among the best I know: rigorous on the physics and the mathematics, and full of the history and philosophy behind them.</p>
-      <p>He is also one of the clearest voices on where our way of living is heading. For him the climate is a symptom, not the main problem: even with a stable climate, life on Earth would still be collapsing, through pesticides, shrinking wild spaces and the loss of most wild animals in a few decades. What drives it is an economy built on endless growth, and technology that keeps speeding it up. That is why we says unlimited clean energy would not save us: it would only let us go faster in the same direction and push further past the planet's limits. The question, for him, is not how much energy we produce but what we do with it, and he calls for a political, poetic and philosophical change of course.</p>
+      <p>He is also one of the clearest voices on where our way of living is heading. For him the climate is a symptom, not the main problem: even with a stable climate, life on Earth would still be collapsing, through pesticides, shrinking wild spaces and the loss of most wild animals in a few decades. What drives it is an economy built on endless growth, and technology that keeps speeding it up. That is why he says unlimited clean energy would not save us: it would only let us go faster in the same direction and push further past the planet's limits. The question, for him, is not how much energy we produce but what we do with it, and he calls for a political, poetic and philosophical change of course.</p>
     </dd>
   </dl>
 </section>
