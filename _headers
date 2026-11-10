@@ -1,6 +1,7 @@
-# Cloudflare Pages response headers for florianfouillet.com. No scripts, no third-party resources, no framing.
+# Cloudflare Pages response headers for florianfouillet.com. One script, Cloudflare Web Analytics' beacon (no cookies),
+# and its reports to Cloudflare; no other script or third-party resource; no framing.
 /*
-  Content-Security-Policy: default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'none'; script-src https://static.cloudflareinsights.com; connect-src https://cloudflareinsights.com; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin

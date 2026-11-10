@@ -312,6 +312,7 @@ cite { font-style: italic; font-size: 1.12rem; }
 
 .foot { position: relative; color: var(--muted); font-size: 0.95rem; }
 .foot p { margin: 0; }
+.foot p + p { margin-top: 0.3rem; }
 
 /* Medium screens: the menu becomes a bar along the top */
 

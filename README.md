@@ -1,6 +1,6 @@
 # fouillet-site
 
-The source of [florianfouillet.com](https://florianfouillet.com), Florian Fouillet's personal site: one page of HTML and CSS with self-hosted fonts. No build step, no JavaScript, no outside requests, no analytics. Cloudflare Pages serves this folder as it is, from `main`, with the headers in `_headers`.
+The source of [florianfouillet.com](https://florianfouillet.com), Florian Fouillet's personal site: one page of HTML and CSS with self-hosted fonts. No build step, and one script: Cloudflare Web Analytics' beacon, which counts visits without cookies (its token is public, in the page). No other outside request. Cloudflare Pages serves this folder as it is, from `main`, with the headers in `_headers`, whose content-security policy allows that beacon and nothing else.
 
 ## Preview
 
