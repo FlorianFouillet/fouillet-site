@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My AI masterclass · Florian Fouillet</title>
+<meta name="description" content="The concepts of AI, from the perceptron to today's large language models, explained in plain words by Florian Fouillet. A work in progress.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="page">
+
+<nav class="toc" aria-label="On this page">
+  <a href="/" class="toc-name">Florian Fouillet</a>
+  <ul>
+    <li><a href="#ai">What is AI?</a></li>
+    <li><a href="#llm">What is an LLM?</a></li>
+    <li><a href="#parameters">Parameters</a></li>
+    <li><a href="#tokens">Tokens</a></li>
+    <li><a href="/">Back to my page</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<header class="hero" id="top">
+  <span class="node node-head" aria-hidden="true"></span>
+  <h1>My AI masterclass</h1>
+  <p class="lead">AI concepts in my own words, from the perceptron of the 1950s to today's large language models. Simple enough for anyone to follow, precise enough to be right.</p>
+  <p class="intro">I'm learning AI from the beginning, and writing each concept down as I go. It's a work in progress: four concepts for now, more to come.</p>
+</header>
+
+<main class="lesson">
+
+<section id="ai" aria-labelledby="ai-h">
+  <h2 id="ai-h"><span class="node" aria-hidden="true"></span>What is AI?</h2>
+  <p>Artificial intelligence is a field of research that brings together computer science, engineering and mathematics. Its aim is to build computer systems that can do tasks that would otherwise need human intelligence: learning, reasoning, solving problems, making decisions.</p>
+  <p>It's a family of fields nested inside one another, a bit like Russian dolls:</p>
+  <p class="nest">AI &gt; machine learning &gt; deep learning &gt; transformer &gt; LLM</p>
+  <ul class="points">
+    <li><strong>AI</strong> is the broad field.</li>
+    <li><strong>Machine learning</strong> is the part of AI that learns from data, instead of following rules written by hand.</li>
+    <li><strong>Deep learning</strong> is the part of machine learning that uses neural networks.</li>
+    <li><strong>The transformer</strong> is one neural network architecture, built around a mechanism called “attention”. It was introduced in 2017, in the paper “Attention Is All You Need”.</li>
+    <li><strong>An LLM</strong> is a very large transformer, trained on text to predict what comes next.</li>
+  </ul>
+</section>
+
+<section id="llm" aria-labelledby="llm-h">
+  <h2 id="llm-h"><span class="node" aria-hidden="true"></span>What is an LLM?</h2>
+  <p>An LLM, a large language model, is the kind of model behind ChatGPT, Claude or Gemini. It's a model that gives a probability to every possible next piece of text, given everything before it.</p>
+  <p>In its simplest form, it's only two things: a huge file of numbers, the <a href="#parameters">parameters</a> (billions to trillions of them), and a small program that runs them, the inference code. The model takes <a href="#tokens">tokens</a> as input and “predicts” the next one. Then it adds that token to its input and runs again, one token at a time. That is called autoregressive generation.</p>
+  <p>When I say “predicts”, it actually computes a probability for every token it knows. A separate step then picks one: the most likely (greedy decoding), or one drawn at random according to settings you can tune, like the temperature. That's why the same question can give two different answers.</p>
+  <p>The parameters come from pre-training: the model reads a huge amount of text, trillions of tokens, on a large cluster of GPUs, for weeks or months. It's by far the most expensive step. The inference code implements the neural network architecture, the transformer. The architecture plus the parameters make the neural network.</p>
+  <p class="aside">So an LLM, as a file you could download, is three things: the parameter file, the inference code that runs the transformer, and the tokenizer.</p>
+</section>
+
+<section id="parameters" aria-labelledby="parameters-h">
+  <h2 id="parameters-h"><span class="node" aria-hidden="true"></span>Parameters, or weights</h2>
+  <p>Parameters and weights are the same thing. They are the numbers a model learns during training: its “knowledge” and its behaviour. When the model runs, they are frozen: the input passes through them to produce the output.</p>
+  <p>Zoom in on one artificial neuron, the idea that started with the perceptron in the 1950s. It takes a few inputs, multiplies each one by its own weight, adds them up, and passes the sum through a small function, the activation function. With three inputs:</p>
+  <p class="formula">y = f(w<sub>0</sub> + w<sub>1</sub>x<sub>1</sub> + w<sub>2</sub>x<sub>2</sub> + w<sub>3</sub>x<sub>3</sub>)</p>
+  <p>The x's are the inputs, the w's are the weights, and w<sub>0</sub>, the one that multiplies no input, is called the bias. f is the activation function. In the perceptron it was a simple switch: +1 if the sum was positive, −1 otherwise. Today's LLMs use smoother versions (ReLU and its variants). That function matters: without it, stacking layers would be useless, because any stack of them could be replaced by one big layer.</p>
+  <p>A layer is many neurons side by side, all reading the same inputs. Their weights form one table of numbers, a matrix, with one row per neuron. Layers are stacked: the output of one is the input of the next. An LLM stacks many of them, for billions of weights in total.</p>
+  <p>How does a model learn its weights? They start as small random numbers (not zero, or every neuron would stay the same). Then the model is shown examples where the right answer is known: for an LLM, a piece of text and the real token that comes next. It makes its guess, we measure how wrong it was, and an algorithm called backpropagation works out in which direction each weight should move to make the error smaller. Gradient descent then nudges every weight a tiny step in that direction. Repeat that over trillions of tokens, and the weights end up holding what the model knows.</p>
+</section>
+
+<section id="tokens" aria-labelledby="tokens-h">
+  <h2 id="tokens-h"><span class="node" aria-hidden="true"></span>Tokens</h2>
+  <p>A common misconception is that an LLM “predicts the next word”. It doesn't work with words: it works with tokens. All text is split into tokens, whether it's your question, the model's answer or the data it was trained on.</p>
+  <p>The splitting is done by a separate algorithm, the tokenizer. It cuts text into pieces and gives each piece a unique number, its ID. The model never sees letters, only these numbers. The tokenizer is built once, before the model is trained, and then frozen.</p>
+  <p>The list of every token the tokenizer knows, each with its ID, is the vocabulary: the model's dictionary. To build it, most LLMs use a method called byte-pair encoding (BPE). It starts from single characters and looks for the pair that appears together most often in a large sample of text, say “t” and “h”, and merges it into a new token, “th”. Then “th” and “e” become “the”. It repeats until the list reaches a size chosen in advance: about 50,000 tokens for GPT-2, about 128,000 for Llama 3.</p>
+  <p>The result: common words become a single token, rare words are split into several pieces, and since it starts from the smallest building blocks, any text can still be written, only with more pieces.</p>
+  <p class="aside">Try it: <a href="https://tiktokenizer.vercel.app/" target="_blank" rel="noopener">Tiktokenizer</a> shows how a sentence is split into tokens.</p>
+</section>
+
+<section id="more" aria-labelledby="more-h">
+  <h2 id="more-h"><span class="node" aria-hidden="true"></span>Coming next</h2>
+  <p>The transformer and attention, embeddings, activation functions, gradient descent and backpropagation, how an LLM is trained step by step (pre-training, fine-tuning, reinforcement learning), the models of today and how they differ, reasoning models, RAG, context windows, agents, and more.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span class="node node-end" aria-hidden="true"></span>
+  <p>Florian Fouillet, 2026. <a href="/">Back to my page</a>.</p>
+</footer>
+
+</div>
+</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4ac5de55cd004744860b5122ab88b4a5"}'></script>
+</body>
+</html>

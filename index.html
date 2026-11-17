@@ -17,9 +17,10 @@
   <a href="#top" class="toc-name">Florian Fouillet</a>
   <ul>
     <li><a href="#bio">Bio</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#masterclass">AI masterclass</a></li>
     <li><a href="#reading">Recent reading</a></li>
     <li><a href="#people">People I follow</a></li>
     <li><a href="#writing">Writing</a></li>
@@ -56,6 +57,27 @@
   <p>I grew up in Angers, in the west of France, and studied there at ESEO: a bachelor's in electrical engineering with a major in maths and physics, then a master's in embedded software engineering. At 22 I moved to Hong Kong for a second master's, in engineering management. Hong Kong showed me that living abroad is exciting, and not that hard. It is also where I had my first look at machine learning, in a class on neural networks, back in 2016.</p>
   <p>By the time I got back to France, my mind was made up: the next chapter would be in the US, in Boston. Easier said than done, but after six months of searching alongside my studies, I started at Schneider Electric in Boston in 2018, writing embedded firmware in C on real-time operating systems like VxWorks, in an R&amp;D team specialized in Ethernet communication.</p>
   <p>A year later my visa was about to run out, so I moved to Nice, in the south of France, and kept developing network protocols for industry while I waited for a new one (and for COVID to end). I came back to Boston in 2021 and went from senior engineer to product owner, then to the program director role I hold today.</p>
+</section>
+
+<section id="projects" aria-labelledby="projects-h">
+  <h2 id="projects-h"><span class="node" aria-hidden="true"></span>Projects</h2>
+
+  <article class="project">
+    <h3><a href="https://flopedia.app/" target="_blank" rel="noopener">Flopedia</a></h3>
+    <p>Flopedia is my second brain, and the system I built around it. It's an idea that marinated for a long time, where several threads of thought meet.</p>
+    <figure class="map">
+      <img src="/flopedia-map.svg" width="720" height="400" alt="A brain drawn as two constellations, gold on the left for my notes and blue on the right for the wiki, circled by an orbit of projects with small moons for their scheduled tasks.">
+      <figcaption>My two brains: my notes on the left, the agents' wiki on the right, my projects in orbit with their scheduled tasks as moons. It's the map at the heart of the Visor, names left out.</figcaption>
+    </figure>
+    <p>It starts with a data layer of my own: since 2018, my documents, then my notes and my projects, live in one place that I control, with a manual and rules that every AI agent follows. Models change every few months; my data, my rules and their history stay, and any agent I trust can pick them up. On one side is my brain, my notes in my own words; on the other, a wiki that agents write from what I read.</p>
+    <p>Two pieces hold it together: the Engine, a service on my own server that is the only door to the data and enforces who may write where, and the Visor, the page I open on any device to see what ran, what needs me, my to-dos and my notes. Agents propose, I decide, and every change is logged.</p>
+    <p class="aside"><a href="/flopedia/">Read the full story of Flopedia</a></p>
+  </article>
+
+  <article class="project">
+    <h3>PipsCodex</h3>
+    <p>An AI investment-intelligence app I am building. It writes a brief on long-term positions, and its core is SPEAR, its loop for event-driven trades: each idea is followed in shadow, checked at set points, reviewed after the fact, and compared with what hindsight shows, so the system learns from its own record.</p>
+  </article>
 </section>
 
 <section id="work" aria-labelledby="work-h">
@@ -116,42 +138,16 @@
   </ol>
 </section>
 
-<section id="projects" aria-labelledby="projects-h">
-  <h2 id="projects-h"><span class="node" aria-hidden="true"></span>Projects</h2>
-
-  <article class="project">
-    <h3><a href="https://flopedia.app/" target="_blank" rel="noopener">Flopedia</a></h3>
-    <p>Flopedia is my second brain, and the system I built around it. It's an idea that marinated for a long time, where several threads of thought meet.</p>
-    <figure class="map">
-      <img src="/flopedia-map.svg" width="720" height="400" alt="A brain drawn as two constellations, gold on the left for my notes and blue on the right for the wiki, circled by an orbit of projects with small moons for their scheduled tasks.">
-      <figcaption>My two brains: my notes on the left, the agents' wiki on the right, my projects in orbit with their scheduled tasks as moons. It's the map at the heart of the Visor, names left out.</figcaption>
-    </figure>
-
-    <h4>A data layer of my own</h4>
-    <p>Our parents kept their lives in binders: the car invoice, the lease, the pay slips, the diplomas, the warranty for the washing machine. We went paperless, but the paper trail never went away; it just scattered across inboxes, apps and download folders. I started building my own data layer in 2018, in Google Drive: an architecture that fits me, saves and backups, and everything reachable from anywhere. It changed my young adult life. Being a very organized person, I still get a small kick every time an invoice, a statement or a tax return lands in its place.</p>
-    <p>Over the years I wanted more unification. My documents were in order, but my notes and to-dos lived somewhere else, and so did my growing number of AI projects. A Claude project (or a GPT, or a Gem) has its own instructions, memory and files, which is great, but what it learns stays inside it: hard to share between tools, and not really mine. So I imagined one data layer for all of it, my documents, my notes and my projects. Each project gets a folder in my Drive, and each Claude project points to it. Models change every few months; my data, my rules and their history stay, and any agent I trust can pick them up.</p>
-    <p>But as soon as several agents share one data layer, it needs rules, just like a team does. So I wrote a manual at the root of my Drive: how everything is organized, and for each kind of agent (a project chat, a scheduled task) what it may read and where it may write. Every folder has its own README that says what belongs in it. The agents also get a folder of their own, _AI, with their task prompts and the list of decisions, numbered, one per line, so no one has to remember why things are the way they are. Agents propose, I decide. And every change an agent makes gets a line in a log, so I always know who did what.</p>
-
-    <h4>Notes that connect</h4>
-    <p>Notes mattered most to me. I used Google Keep for years: it's simple and fast, a new note in a few seconds, but it gets hard to manage once notes grow longer and more numerous. I wanted notes that connect to each other, a bit like neurons making connections between ideas. That is the idea behind Flopedia and this "second brain". So I gave my notes their own place in the data layer, as Markdown files linked the way Obsidian does it (I have since replaced the editor with my own, but more on that another time).</p>
-    <p>I write; agents polish (grammar, clearer sentences, my own voice kept) and suggest links between notes. The ideas and the reflection have to come from me. My notes are how I think, and putting things down on (virtual) paper helps me go further and build more complex ideas.</p>
-
-    <h4>Two brains</h4>
-    <p>Then I came across Andrej Karpathy's <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">LLM Wiki</a>: an LLM that compiles what you read into a wiki it maintains itself. It's a bit different from what I had, but it gave me the two halves you see in the map at the top. On the left, in gold, is my brain: my notes, my documents and my projects, everything that comes from me. On the right, in blue, is the AI brain: when I read an article, a paper or a book, an agent can go through all of it and file what it says in a wiki of its own, linked to the rest. Agents write the wiki, I read it, and it never speaks for me. Around both, my projects are in orbit, and the small moons are their scheduled tasks.</p>
-
-    <h4>The Engine and the Visor</h4>
-    <p>To hold it together I built two pieces. The <strong>Engine</strong> runs on my own server. It keeps a read-only copy of my data layer, so many agents can read at the same time without stepping on each other, and each one only reaches what it is allowed to. It keeps a history of every change and who made it, runs scheduled scripts that check the system's health, and gives agents a few simple primitives through MCP: search, read a file, see what ran, add a line to a log, record a decision. It is purely mechanical: it never calls a model.</p>
-    <p>The <strong>Visor</strong> is the page I open on any device, phone included. It shows the map at the top, what ran, what needs me, my to-dos and what's coming up, and it is where I read and edit my notes. It also captures: anything I type, or share to it from another app on my phone, lands in an inbox, and an agent sorts it into the right place.</p>
-
-    <h4>More and more autonomous</h4>
-    <p>Each project now has its own folder, rules and resources, and its own scheduled tasks that run while I'm away: one sorts the inbox, one checks the wiki every week, one gathers each day's log. Every run reports back, and when something needs me, it shows up in the Visor with a link to the right chat. The rules stay the same: agents propose, I decide; every change is logged; what is private stays private.</p>
-    <p class="aside">More to come: a map of how my notes connect, and some of my notes published here.</p>
-  </article>
-
-  <article class="project">
-    <h3>PipsCodex</h3>
-    <p>An AI investment-intelligence app I am building. It writes a brief on long-term positions, and its core is SPEAR, its loop for event-driven trades: each idea is followed in shadow, checked at set points, reviewed after the fact, and compared with what hindsight shows, so the system learns from its own record.</p>
-  </article>
+<section id="masterclass" aria-labelledby="masterclass-h">
+  <h2 id="masterclass-h"><span class="node" aria-hidden="true"></span>My AI masterclass</h2>
+  <p>I'm diving deeper into AI, starting from the very beginning: the first ideas of the 1950s and the perceptron, all the way to today's latest breakthroughs. As I go, I want to write the concepts down in my own words, simply enough that anyone can follow, without a background in maths or computer science. Writing them is also how I make sure I really understand them.</p>
+  <p>It's a work in progress: I'm starting with four concepts and will add more over time.</p>
+  <ul class="shelf">
+    <li><a href="/masterclass/#ai">What is AI?</a><span class="by">the big picture</span></li>
+    <li><a href="/masterclass/#llm">What is an LLM?</a><span class="by">the model behind ChatGPT or Claude</span></li>
+    <li><a href="/masterclass/#parameters">Parameters, or weights</a><span class="by">what a model learns</span></li>
+    <li><a href="/masterclass/#tokens">Tokens</a><span class="by">what a model reads and writes</span></li>
+  </ul>
 </section>
 
 <section id="reading" aria-labelledby="reading-h">
@@ -194,10 +190,10 @@
   <h2 id="writing-h"><span class="node" aria-hidden="true"></span>Writing</h2>
   <p class="intro">Short pieces on AI, agents and industrial systems, posted on <a href="https://www.linkedin.com/in/florianfouillet/recent-activity/all/" target="_blank" rel="noopener">LinkedIn</a>.</p>
   <ul class="posts">
+    <li><a class="title" href="https://www.linkedin.com/posts/florianfouillet_industrialai-automation-ai-ugcPost-7526643008256106496-4y-r" target="_blank" rel="noopener">Models that decide</a><span class="date"><time datetime="2026-11">November 2026</time></span></li>
+    <li><a class="title" href="https://www.linkedin.com/posts/florianfouillet_ai-consciousness-neuroscience-share-7524136193333280768-00Em" target="_blank" rel="noopener">Is there someone inside? Look, don't ask</a><span class="date"><time datetime="2026-11">November 2026</time></span></li>
+    <li><a class="title" href="https://www.linkedin.com/posts/florianfouillet_industrialai-aiagents-opcua-share-7523030742671540224-Jh-3" target="_blank" rel="noopener">Let agents play where it's safe</a><span class="date"><time datetime="2026-11">November 2026</time></span></li>
     <li><a class="title" href="https://www.linkedin.com/feed/update/urn:li:activity:7520839283637665792/" target="_blank" rel="noopener">Play is how agents learn</a><span class="date"><time datetime="2026-10">October 2026</time></span></li>
-    <li><a class="title" href="https://www.linkedin.com/feed/update/urn:li:activity:7519027407173976064/" target="_blank" rel="noopener">AI was supposed to free up our time</a><span class="date"><time datetime="2026-10">October 2026</time></span></li>
-    <li><a class="title" href="https://www.linkedin.com/feed/update/urn:li:activity:7511410227645136896/" target="_blank" rel="noopener">Two days at EmTech Future, one word: convergence</a><span class="date"><time datetime="2026-10">October 2026</time></span></li>
-    <li><a class="title" href="https://www.linkedin.com/feed/update/urn:li:activity:7508905300775616513/" target="_blank" rel="noopener">Six people, 15 paths</a><span class="date"><time datetime="2026-09">September 2026</time></span></li>
   </ul>
 </section>
 
@@ -234,7 +230,6 @@
 <footer class="foot">
   <span class="node node-end" aria-hidden="true"></span>
   <p>Florian Fouillet, 2026. No cookies, no tracking.</p>
-  <p>Visits are counted by Cloudflare Web Analytics, without cookies.</p>
 </footer>
 
 </div>

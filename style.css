@@ -369,3 +369,27 @@ cite { font-style: italic; font-size: 1.12rem; }
   color: var(--text);
   margin: 1.9rem 0 0.45rem;
 }
+
+/* v1.3: a tenth section on the line, and the masterclass page */
+
+section:nth-of-type(10) .node { animation-delay: 1.7s; }
+.node-end { animation-delay: 1.85s; }
+.hero > h1 { margin-bottom: 1.4rem; }
+.nest {
+  font-family: var(--display);
+  word-spacing: 0.05em;
+  color: var(--blue);
+  margin: 0.2rem 0 1rem;
+}
+.points { margin: 0 0 1rem; padding-left: 1.2rem; max-width: 38em; }
+.points li { margin: 0 0 0.45em; }
+.points strong, .lesson strong { font-weight: 600; }
+.formula {
+  font-family: var(--read);
+  font-style: italic;
+  font-size: 1.2rem;
+  padding: 0.6rem 1rem;
+  border-left: 2px solid var(--gold);
+  margin: 0.4rem 0 1.1rem;
+}
+.shelf li > a { font-size: 1.08rem; }
