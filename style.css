@@ -393,3 +393,22 @@ section:nth-of-type(10) .node { animation-delay: 1.7s; }
   margin: 0.4rem 0 1.1rem;
 }
 .shelf li > a { font-size: 1.08rem; }
+
+/* v1.4: the second line of links in the head (my pages), and a back link on the new pages that is easy to find */
+
+.links + .links-pages { margin-top: 0.5rem; }
+.toc .toc-back {
+  display: inline-block;
+  margin-bottom: 1.1rem;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--gold);
+  font-size: 0.98rem;
+  text-decoration: none;
+}
+.toc .toc-back:hover { color: var(--gold-hover); border-color: var(--gold-hover); }
+@media (max-width: 64rem) {
+  .toc { display: flex; align-items: center; gap: 1.2rem; }
+  .toc .toc-back { flex: none; margin: 0; padding: 0.15rem 0.7rem; }
+}
